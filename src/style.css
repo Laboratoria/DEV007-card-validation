@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 90%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    align-items: center;
+}
+
+.chip{
+    width: 100px;
+    height: auto;
+}
+
+.franquicia{
+    width: 100px;
+    height: auto;
+}
+
