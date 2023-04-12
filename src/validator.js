@@ -1,6 +1,7 @@
 const validator = {
   // ...
-  isValid: (creditCardNumber) => {
+
+  isValid: (creditCardNumber) => { //en isValid se guarda el valor de la función anónima
 
     //verificar que sean solo números//
     if ( isNaN(creditCardNumber) ){
@@ -22,8 +23,23 @@ const validator = {
     for (let i = creditCardNumber.length - 1; i >= 0 ; i--) {
       //creditCardNumber[i];        // Primera forma de obtener el caracter en el indice "i"
       //creditCardNumber.charAt(i); // Segunda forma de obtener el caracter en el indice "i"
-      reverse = reverse + (creditCardNumber[i]);
+      let numeroEnLectura = creditCardNumber.charAt(i);
+      
+
+      const resto = i % 2;
+      if (resto === 0) { // Esto solo pasa cuando el indice sea par
+        //console.log("par " + numeroEnLectura)
+
+        numeroEnLectura = parseInt(numeroEnLectura) * 2; //parseInt transforma a numérico
+        
+      }
+    
+      reverse = reverse + numeroEnLectura.toString(); //para concatenar
+      
+
     }
+
+
 
     /*
     Numero enviado de tarjeta: 1547865415446841
@@ -57,3 +73,5 @@ function hola(userName){
 */
 
 export default validator;
+
+
