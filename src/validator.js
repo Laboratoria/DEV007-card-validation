@@ -3,15 +3,16 @@ const validator = {
 
   isValid: (creditCardNumber) => { //en isValid se guarda el valor de la función anónima
 
+    console.log("isValid creditCardNumber " + creditCardNumber);
     //verificar que sean solo números//
-    if ( isNaN(creditCardNumber) ){
+    if (isNaN(creditCardNumber)) {
       console.log("No es un número");
       return false;
     }
 
     //Verificar que el largo de la tarjeta sea 16 C
-    let largoString = creditCardNumber.length;
-    if (largoString !== 16){
+    const largoString = creditCardNumber.length;
+    if (largoString !== 16) {
       console.log("El largo de la tarjeta no corresponde");
       return false;
     }
@@ -20,22 +21,31 @@ const validator = {
     creditCardNumber = creditCardNumber.toString(); //para asegurar de que el parámetro sea string//
 
     let reverse = "";
-    for (let i = creditCardNumber.length - 1; i >= 0 ; i--) {
+    for (let i = creditCardNumber.length - 1; i >= 0; i--) {
       //creditCardNumber[i];        // Primera forma de obtener el caracter en el indice "i"
       //creditCardNumber.charAt(i); // Segunda forma de obtener el caracter en el indice "i"
       let numeroEnLectura = creditCardNumber.charAt(i);
-      
 
       const resto = i % 2;
-      if (resto === 0) { // Esto solo pasa cuando el indice sea par
+      if (resto === 0) { // Esto solo pasa cuando el indice sea im par
         //console.log("par " + numeroEnLectura)
 
-        numeroEnLectura = parseInt(numeroEnLectura) * 2; //parseInt transforma a numérico
-        
+        numeroEnLectura = parseInt(numeroEnLectura) * 2; //parseInt transforma a numérico y multiplica por dos
+        if (numeroEnLectura > 9) { //si el numero tiene mas de 2 dígitos
+
+          let dobleDigito = numeroEnLectura.toString();
+          let digitoPrimario = dobleDigito.charAt(0);
+          let digitoSecundario = dobleDigito.charAt(1);
+
+          //let dobleDigito = numeroEnLectura.toString().charAt(0); opción para optimizar el código
+
+          numeroEnLectura = parseInt(digitoPrimario) + parseInt(digitoSecundario);
+        }
+
       }
-    
+
       reverse = reverse + numeroEnLectura.toString(); //para concatenar
-      
+
 
     }
 
@@ -57,13 +67,37 @@ const validator = {
 
     
     */
+
+
+
     
 
+    console.log("tarjeta procesada " + reverse);
+  },
 
-    console.log(reverse);
+  maskify: (creditCardNumber) => {
 
-    console.log("Fin de el código");
-  }
+    creditCardNumber = creditCardNumber.toString();
+
+    let numeroOculto = "";
+    for (let i = 0; i < creditCardNumber.length; i++) {
+
+      if (i < creditCardNumber.length - 4) {
+        numeroOculto = numeroOculto + "*";
+
+      } else {
+        numeroOculto = numeroOculto + creditCardNumber[i];
+
+      }
+    }
+
+    console.log(creditCardNumber);
+    console.log(numeroOculto);
+
+    return numeroOculto;
+  },
+
+
 };
 
 /* 

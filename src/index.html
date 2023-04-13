@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tarjeta de crédito válida</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    Credit Card Validator
 
-    <div class="container">
-      <section class="tarjeta" id="tarjeta">
-        <div class="front">
-          <div>
-            <img src="img/mastercard.png" alt="" class="franquicia">
-          </div>
+<head>
+  <meta charset="utf-8">
+  <title>Tarjeta de crédito válida</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-          <img src="img/chip-dorado.png" class="chip" alt="">
+<body>
+  <h1 class="titulo">Credit Card Validator</h1>
 
-          <div class="datos">
-            <div class="sector" id="numero">
-              <p class="etiqueta">Numero de la tarjeta</p>
-              <p class="numero"> **** **** **** ****</p>
+  <div class="container">
+    <section class="tarjeta" id="tarjeta">
+      <div class="front">
+        <div>
+          <img src="img/mastercard.png" alt="" class="franquicia">
+        </div>
 
-            </div>
+        <img src="img/chip-dorado.png" class="chip" alt="">
 
-            <div class="flexbox">
-              <div class="sector" id="nombre">
-                <p class="etiqueta">Nombre en la tarjeta</p>
-                <p class="nombre">Lorem Ipsum</p>
-              </div>
-            </div>
-           
-
+        <div class="datos">
+          <div class="sector" id="numero">
+            <p class="etiqueta">Numero de la tarjeta</p>
+            <p class="numero"> **** **** **** ****</p>
 
           </div>
+
+          <div class="flexbox">
+            <div class="sector" id="nombre">
+              <p class="etiqueta">Nombre en la tarjeta</p>
+              <p class="nombre">Lorem Ipsum</p>
+            </div>
+          </div>
+
+          <div class="sector" id="expiracion">
+            <p class="etiqueta">Expiración</p>
+            <p class="expiracion"> MM/AA </p>
+
+          </div>
+
+
 
         </div>
 
-      </section>
-  
-    </div>
-    
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="index.js" type="module"></script>
-  </body>
+      </div>
+      
+      <div class="back">
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <header></header>
+  <main></main>
+  <footer></footer>
+  <script src="index.js" type="module"></script>
+</body>
+
 </html>

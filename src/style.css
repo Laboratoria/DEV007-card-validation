@@ -7,11 +7,11 @@
 .container{
     width: 80%;
     max-width: 1000px;
+    background-color: bisque;
     padding: 35px 15px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: bisque;
     align-items: center;
 }
 
@@ -25,3 +25,29 @@
     height: auto;
 }
 
+.titulo{text-align: center;
+}
+
+.tarjeta{
+    width: 100%;
+    max-width: 600px;
+    color:silver;
+    transition: 3s ease all;
+    transform: rotateY('0deg');
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    cursor:pointer;
+    background-color: black;
+
+
+   /* position:relative;*/
+}
+
+.tarjeta:hover /* .active en js */ {
+    transform: rotateY(180deg);
+}
+
+.tarjeta >div{
+    padding: 35px;
+    border-radius: 15px;
+}
