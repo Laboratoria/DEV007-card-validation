@@ -33,9 +33,9 @@ const validator = {
         numeroEnLectura = parseInt(numeroEnLectura) * 2; //parseInt transforma a numérico y multiplica por dos
         if (numeroEnLectura > 9) { //si el numero tiene mas de 2 dígitos
 
-          let dobleDigito = numeroEnLectura.toString();
-          let digitoPrimario = dobleDigito.charAt(0);
-          let digitoSecundario = dobleDigito.charAt(1);
+          const dobleDigito = numeroEnLectura.toString();
+          const digitoPrimario = dobleDigito.charAt(0);
+          const digitoSecundario = dobleDigito.charAt(1);
 
           //let dobleDigito = numeroEnLectura.toString().charAt(0); opción para optimizar el código
 
