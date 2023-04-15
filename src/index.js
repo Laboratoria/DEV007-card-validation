@@ -2,7 +2,7 @@ import validator from './validator.js';
 
 console.log(validator);
 
-validator.isValid("1547865415446841");
+validator.isValid("4083952015263");
 
 //validator.maskify("1547865415446841");
 /*validator.maskify("154786541");

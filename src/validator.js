@@ -1,6 +1,5 @@
 const validator = {
-  // ...
-
+  // ...  
   isValid: (creditCardNumber) => { //en isValid se guarda el valor de la función anónima
 
     console.log("isValid creditCardNumber " + creditCardNumber);
@@ -12,22 +11,31 @@ const validator = {
 
     //Verificar que el largo de la tarjeta sea 16 C
     const largoString = creditCardNumber.length;
-    if (largoString !== 16) {
+    if (largoString > 16) {
       console.log("El largo de la tarjeta no corresponde");
       return false;
     }
 
+
     //algoritmo de Luhn
     creditCardNumber = creditCardNumber.toString(); //para asegurar de que el parámetro sea string//
 
-    let reverse = "";
+    let reverse = ""; // se guarda la tarjeta dada vuelta
+    let sumaFinal = 0; //si la seteo en vacía va a ser string, si la seteo en cero es numérica
+  
+    //primer ciclo for para invertir el número
     for (let i = creditCardNumber.length - 1; i >= 0; i--) {
-      //creditCardNumber[i];        // Primera forma de obtener el caracter en el indice "i"
-      //creditCardNumber.charAt(i); // Segunda forma de obtener el caracter en el indice "i"
-      let numeroEnLectura = creditCardNumber.charAt(i);
+      const numeroEnLectura = creditCardNumber.charAt(i);
+      reverse = reverse + numeroEnLectura.toString(); //para concatenar
+    }
 
-      const resto = i % 2;
-      if (resto === 0) { // Esto solo pasa cuando el indice sea im par
+    //multiplica todos los segundos números *2 y suma los dobles dígitos
+    for (let i = 0; i < reverse.length; i++){
+
+      let numeroEnLectura = reverse.charAt(i);
+
+      const resto = i % 2; //para poder identificar que índice es par o impar
+      if (resto === 1) { // Esto solo pasa cuando el indice sea impar
         //console.log("par " + numeroEnLectura)
 
         numeroEnLectura = parseInt(numeroEnLectura) * 2; //parseInt transforma a numérico y multiplica por dos
@@ -39,40 +47,20 @@ const validator = {
 
           //let dobleDigito = numeroEnLectura.toString().charAt(0); opción para optimizar el código
 
-          numeroEnLectura = parseInt(digitoPrimario) + parseInt(digitoSecundario);
+          numeroEnLectura = parseInt(digitoPrimario) + parseInt(digitoSecundario); //toma la variable numeroEnLectura y le asigna el valor de la suma de dígitos
         }
-
       }
-
-      reverse = reverse + numeroEnLectura.toString(); //para concatenar
-
+      sumaFinal = sumaFinal + parseInt(numeroEnLectura);
 
     }
 
 
 
-    /*
-    Numero enviado de tarjeta: 1547865415446841
-
-    let reverse = ""; // Cada vuelta a reverse se le suma el caracter del número de tarjeta desde el final
-    hacia el comienzo.
-
-    Primera vuelta
-    reverse = reverse + "1"; // reverse: "1"
-    Segunda vuelta
-    reverse = reverse + "4"; // reverse: "14"
-    Tercera vuelta...
-    reverse = reverse + "8"; // reverse: "148"
-    reverse = reverse + "6"; // reverse: "1486"...
-
-    
-    */
-
-
-
-    
-
-    console.log("tarjeta procesada " + reverse);
+    if (sumaFinal %10 === 0){ //verifica si es múltiplo de 10
+      return true;
+    } else { 
+      return false;
+    }
   },
 
   maskify: (creditCardNumber) => {
@@ -83,7 +71,7 @@ const validator = {
     for (let i = 0; i < creditCardNumber.length; i++) {
 
       if (i < creditCardNumber.length - 4) {
-        numeroOculto = numeroOculto + "*";
+        numeroOculto = numeroOculto + "#";
 
       } else {
         numeroOculto = numeroOculto + creditCardNumber[i];
@@ -100,11 +88,6 @@ const validator = {
 
 };
 
-/* 
-function hola(userName){
-  console.log("hola " + userName);
-}
-*/
 
 export default validator;
 
