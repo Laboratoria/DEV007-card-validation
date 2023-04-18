@@ -20,9 +20,9 @@
         <img src="img/chip-dorado.png" class="chip">
 
         <div class="datos">
-          <div class="sector" id="numero">
+          <div class="sector" id="num">
             <p class="etiqueta">Numero de la tarjeta</p>
-            <p class="numero"> **** **** **** ****</p>
+            <p class="numero" id="numero"> #### #### #### ####</p>
 
           </div>
 
@@ -48,15 +48,11 @@
       <div class="back">
         <div class="barra"></div>
         <div class="datos">
-        <div class="sector" id="signature">
-          <p class="etiqueta">La Firma</p>
-          <div class="signature">
-            <p></p>
-          </div>
+        <div class="sector" id="CVV">
+          <p class="etiqueta">CVV</p>
+         
         </div>
-        <div class="sector" id="CVV"></div>
-        <p class="etiqueta">CVV</p>
-        <p class="cvv"></p>
+        
 
        </div>
 
@@ -70,8 +66,56 @@
     </section>
 
     <!--Formulario -->
+   <br>
+   <br>
 
+    <form id="formulario" class="formulario">
+      <div class="grupo">
+        <label for="inputNumero">Número tarjeta</label>
+        <input type="text" id="inputNumero" maxlength="16" autocomplete="off">
+      </div>
 
+      <div class="grupo">
+        <label for="inputNombre">Nombre en la tarjeta</label>
+        <input type="text" id="inputNombre" maxlength="25" autocomplete="off">
+
+      </div>
+
+      <div class="flexbox2">
+        <div class="expiracion2">
+          <label for="seleccionarMes">Valid thru</label>
+
+          <div class="flexbox2">
+            <div class="seleccionGrupo">
+              <select name="meses" id="seleccionarMes" class="">
+                <option disable selected>Mes</option>
+              </select>
+              <i class="fa-solid fa-angle-down"></i> <!---NO ME TOMA-->
+
+            </div>
+
+            <div class="seleccionGrupo">
+              <select name="anio" id="seleccionarAnio" class="">
+                <option disable selected>Año</option>
+              </select>
+              <!---<i class="fa-solid fa-angle-down" style="color: #ec6a13;"></i>-->
+
+            </div>
+
+          </div>
+        
+        </div>
+
+        <div class="grupo CVV">
+          <label for="inputCVV">CVV</label>
+          <input type="text" id="inputCVV" maxlength="3">
+
+        </div>
+
+      </div>
+      <button type="submit" class="botonEnvio">Ingresar</button>
+
+    </form>
 
 
   </div>

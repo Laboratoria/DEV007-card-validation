@@ -1,22 +1,9 @@
 const validator = {
   // ...  
-  isValid: (creditCardNumber) => { //en isValid se guarda el valor de la función anónima
+  isValid: (creditCardNumber) => { //en isValid (parámetro) se guarda el valor de la función anónima
 
     console.log("isValid creditCardNumber " + creditCardNumber);
-    //verificar que sean solo números//
-    if (isNaN(creditCardNumber)) {
-      console.log("No es un número");
-      return false;
-    }
-
-    //Verificar que el largo de la tarjeta sea 16 C
-    const largoString = creditCardNumber.length;
-    if (largoString > 16) {
-      console.log("El largo de la tarjeta no corresponde");
-      return false;
-    }
-
-
+   
     //algoritmo de Luhn
     creditCardNumber = creditCardNumber.toString(); //para asegurar de que el parámetro sea string//
 
@@ -54,8 +41,7 @@ const validator = {
 
     }
 
-
-
+     //return sumaFinal %10 === 0;  opción 2 para el true/false
     if (sumaFinal %10 === 0){ //verifica si es múltiplo de 10
       return true;
     } else { 
