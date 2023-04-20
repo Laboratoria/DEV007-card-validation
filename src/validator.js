@@ -40,9 +40,7 @@ const validator = {
       sumaFinal = sumaFinal + parseInt(numeroEnLectura);
 
     }
-
-     //return sumaFinal %10 === 0;  opción 2 para el true/false
-    if (sumaFinal %10 === 0){ //verifica si es múltiplo de 10
+    if (sumaFinal %10 === 0){ //verifica si es múltiplo de 10 //return sumaFinal %10 === 0;  opción 2 para el true/false
       return true;
     } else { 
       return false;

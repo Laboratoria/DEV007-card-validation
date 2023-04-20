@@ -7,19 +7,18 @@ function onlyNumbers(evento){
     console.log(evento);
 
     //verificar que sean solo números y la tecla borrar//
-    if (isNaN(evento.key) && evento.key !== "Backspace") {
+    if ( (isNaN(evento.key) || evento.key === " ") && evento.key !== "Backspace") { // Si es que el valor no es numérico && es espacio " " && no es borrar
         console.log("No es un número");
         evento.preventDefault(); //prevenir un evento, en este caso evita que se dibuje una tecla no permitida
-        return false;
     }
-
-    //Verificar que el largo de la tarjeta sea 16 C
+}
+//Verificar que el largo de la tarjeta sea 16 C
+function largoTarjetaCredito(evento){
     const creditCardNumber = document.querySelector("#inputNumero").value;
     const largoString = creditCardNumber.length;
     if (largoString > 16) {
       console.log("El largo de la tarjeta no corresponde");
       evento.preventDefault(); //previene que se escriban mas de 16 caracteres
-      return false;
     }
 }
 
@@ -39,7 +38,6 @@ function dibujoNombreTarjeta (){
         document.querySelector("#nombre").innerHTML = "LOREM IPSUM";
     } else { 
         document.querySelector("#nombre").innerHTML = creditCardName;
-
     }
 }
 
@@ -53,14 +51,29 @@ function botonValidacion(){
     }
 }
 
+function dibujarCVVTarjeta(){
+    let codigoSeguridad = document.querySelector("#inputCVV").value;
+    if(codigoSeguridad.length == 0){
+        document.querySelector("#CVV").innerHTML = "CVV";
+    } else { 
+        document.querySelector("#CVV").innerHTML = codigoSeguridad;
+    }
+}
+
 document.querySelector("#inputNumero").addEventListener('keydown', onlyNumbers);
+document.querySelector("#inputNumero").addEventListener('keydown', largoTarjetaCredito);
 document.querySelector("#inputNumero").addEventListener('keyup', dibujoNumeroTarjeta);
 document.querySelector("#inputNombre").addEventListener('keyup', dibujoNombreTarjeta);
-document.querySelector("#botonEnvio").addEventListener('click',botonValidacion);
+document.querySelector("#formulario").addEventListener('submit',botonValidacion);
+document.querySelector("#inputCVV").addEventListener('keydown',onlyNumbers);
+document.querySelector("#inputCVV").addEventListener('keyup',dibujarCVVTarjeta);
 
 
 const tarjeta = document.querySelector("#tarjeta");
 const formulario = document.querySelector("#formulario");
+const mesExpiracion = document.querySelector("#mesExpiracion");
+const anioExpiracion = document.querySelector("#anioExpiracion");
+const codigoSeguridad = document.querySelector("#inputCVV");
 
 // Giro de la tarjeta
 const inputCvv = document.querySelector("#inputCVV");
@@ -88,3 +101,24 @@ for(let i = anioActual; i <= anioActual + 10; i++){
 	opcion.innerHTML = i;
 	formulario.seleccionarAnio.appendChild(opcion);
 }
+// Selecionar Mes
+formulario.seleccionarMes.addEventListener('change', () => {
+    const valorSeleccionMes = document.querySelector("#seleccionarMes").value;
+    if (valorSeleccionMes == ""){
+        mesExpiracion.innerHTML = "MM";
+    }else{
+        mesExpiracion.innerHTML = document.querySelector("#seleccionarMes").value;
+    }
+});
+
+// Seleccionar Año
+formulario.seleccionarAnio.addEventListener('change', () => {
+    const valorSeleccionAnio = document.querySelector("#seleccionarAnio").value;
+    if (valorSeleccionAnio == ""){
+        anioExpiracion.innerHTML = "AA";
+    }else{
+        anioExpiracion.innerHTML = document.querySelector("#seleccionarAnio").value.slice(2);
+    }
+});
+
+//Escribir CVV

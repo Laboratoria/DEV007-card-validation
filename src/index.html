@@ -35,7 +35,7 @@
 
             <div class="sector" id="expiracion">
               <p class="etiqueta">Expiración</p>
-              <p class="expiracion"> <span class="mes">MM</span>/<span class="anio">AA</span> </p>
+              <p class="expiracion"> <span class="mes" id="mesExpiracion">MM</span>/<span class="anio" id="anioExpiracion">AA</span> </p>
 
             </div>
           </div>
@@ -48,8 +48,8 @@
       <div class="back">
         <div class="barra"></div>
         <div class="datos">
-        <div class="sector" id="CVV">
-          <p class="etiqueta">CVV</p>
+        <div class="sector" >
+          <p class="etiqueta" id="CVV">CVV</p>
          
         </div>
         
@@ -72,12 +72,12 @@
     <form id="formulario" class="formulario">
       <div class="grupo">
         <label for="inputNumero">Número tarjeta</label>
-        <input type="text" id="inputNumero" maxlength="16" autocomplete="off">
+        <input type="text" id="inputNumero" minlength="1" maxlength="16" autocomplete="off" required>
       </div>
 
       <div class="grupo">
         <label for="inputNombre">Nombre en la tarjeta</label>
-        <input type="text" id="inputNombre" maxlength="25" autocomplete="off">
+        <input type="text" id="inputNombre" minlength="1" maxlength="25" autocomplete="off" required>
 
       </div>
 
@@ -88,7 +88,7 @@
           <div class="flexbox2">
             <div class="seleccionGrupo">
               <select name="meses" id="seleccionarMes" class="">
-                <option disable selected>Mes</option>
+                <option value="" disabled selected>Mes</option>
               </select>
               
 
@@ -96,7 +96,7 @@
 
             <div class="seleccionGrupo">
               <select name="anio" id="seleccionarAnio" class="">
-                <option disable selected>Año</option>
+                <option value="" selected disabled>Año</option>
               </select>
               
 
@@ -108,12 +108,12 @@
 
         <div class="grupo CVV">
           <label for="inputCVV">CVV</label>
-          <input type="text" id="inputCVV" maxlength="3">
+          <input type="text" id="inputCVV" minlength="3" maxlength="3" required>
 
         </div>
 
       </div>
-      <button type="button" class="botonEnvio" id="botonEnvio">Ingresar</button>
+      <button type="submit" class="botonEnvio" id="botonEnvio">Ingresar</button>
 
     </form>
 
