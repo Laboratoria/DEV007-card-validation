@@ -57,6 +57,30 @@ function dibujarCVVTarjeta() {
   }
 }
 
+/* 
+34 y 37	American Express
+36	Diner's Club / International
+4	Visa
+51 to 55	MasterCard
+*/
+
+function validarFranquicia (){
+  const creditCardNumber = document.querySelector("#inputNumero").value;
+  let urlImagen = "img/";
+  if (creditCardNumber.startsWith("4") === true){
+    urlImagen = urlImagen + "Visa.png";
+  } else if(creditCardNumber.startsWith("34") === true || creditCardNumber.startsWith("37") === true ){
+    urlImagen = urlImagen + "Amex.png";
+  } else if (creditCardNumber.startsWith("36") === true){
+    urlImagen = urlImagen + "Diners.png";
+  } else if (creditCardNumber.startsWith("51") === true || creditCardNumber.startsWith("52") === true || creditCardNumber.startsWith("53") === true || creditCardNumber.startsWith("54") === true || creditCardNumber.startsWith("55") === true){
+    urlImagen = urlImagen + "mastercard.png"
+  } else {
+    urlImagen = "#";
+  }
+  document.querySelector("#franquicia").setAttribute("src",urlImagen);
+}
+
 document.querySelector("#inputNumero").addEventListener('keydown', onlyNumbers);
 document.querySelector("#inputNumero").addEventListener('keydown', largoTarjetaCredito);
 document.querySelector("#inputNumero").addEventListener('keyup', dibujoNumeroTarjeta);
@@ -64,7 +88,7 @@ document.querySelector("#inputNombre").addEventListener('keyup', dibujoNombreTar
 document.querySelector("#formulario").addEventListener('submit', botonValidacion);
 document.querySelector("#inputCVV").addEventListener('keydown', onlyNumbers);
 document.querySelector("#inputCVV").addEventListener('keyup', dibujarCVVTarjeta);
-
+document.querySelector("#inputNumero").addEventListener('keyup',validarFranquicia);
 
 const tarjeta = document.querySelector("#tarjeta");
 const formulario = document.querySelector("#formulario");
