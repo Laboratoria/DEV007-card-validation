@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <h1 class="titulo">Credit Card Validator</h1>
+  <h1 class="titulo">Validación de tarjeta de crédito</h1>
 
   <div class="container">
     <section class="tarjeta" id="tarjeta">
       <div class="front">
         <div class="padreFranquicia">
-          <img src="img/mastercard.png" alt="" class="franquicia" id="franquicia">
+          <img src="#" alt="" class="franquicia" id="franquicia">
         </div>
 
         <img src="img/chip-dorado.png" class="chip">
@@ -29,7 +29,7 @@
           <div class="flexbox">
             <div class="sector" id="">
               <p class="etiqueta">Nombre en la tarjeta</p>
-              <p class="nombre" id="nombre">Lorem Ipsum</p>
+              <p class="nombre" id="nombre">CARDHOLDER NAME</p>
             </div>
 
 
@@ -66,28 +66,35 @@
     </section>
 
     <!--Formulario -->
-   <br>
-   <br>
+    <br>
+    <h3>Métodos de pago aceptados </h3>
+    <div class="payment">
+      <img src="img/paymentvisa.png" class="payvisa">
+      <img src="img/paymentmastercard.png" class="paymaster">
+      <img src="img/paymentamex.png" class="payamex">
+      <img src="img/paymentdiners.png" class="paydiners">
+    </div>
 
+    <br>
     <form id="formulario" class="formulario">
       <div class="grupo">
-        <label for="inputNumero">Número tarjeta</label>
+        <label for="inputNumero">NÚMERO TARJETA</label>
         <input type="text" id="inputNumero" minlength="1" maxlength="16" autocomplete="off" required>
       </div>
 
       <div class="grupo">
-        <label for="inputNombre">Nombre en la tarjeta</label>
+        <label for="inputNombre">NOMBRE EN LA TARJETA</label>
         <input type="text" id="inputNombre" minlength="1" maxlength="25" autocomplete="off" required>
 
       </div>
 
       <div class="flexbox2">
         <div class="expiracion2">
-          <label for="seleccionarMes">Valid thru</label>
+          <label for="seleccionarMes">VALID THRU</label>
 
           <div class="flexbox2">
             <div class="seleccionGrupo">
-              <select name="meses" id="seleccionarMes" class="">
+              <select name="meses" id="seleccionarMes" class="" required>
                 <option value="" disabled selected>Mes</option>
               </select>
               
@@ -95,7 +102,7 @@
             </div>
 
             <div class="seleccionGrupo">
-              <select name="anio" id="seleccionarAnio" class="">
+              <select name="anio" id="seleccionarAnio" class="" required>
                 <option value="" selected disabled>Año</option>
               </select>
               
@@ -113,7 +120,7 @@
         </div>
 
       </div>
-      <button type="submit" class="botonEnvio" id="botonEnvio">Ingresar</button>
+      <button type="submit" class="botonEnvio" id="botonEnvio" style="color:white">VALIDAR</button>
 
     </form>
 

@@ -32,7 +32,7 @@ function dibujoNumeroTarjeta() {
 function dibujoNombreTarjeta() {
   const creditCardName = document.querySelector("#inputNombre").value;
   if (creditCardName.length === 0) {
-    document.querySelector("#nombre").innerHTML = "LOREM IPSUM";
+    document.querySelector("#nombre").innerHTML = "CARDHOLDER NAME";
   } else {
     document.querySelector("#nombre").innerHTML = creditCardName;
   }
