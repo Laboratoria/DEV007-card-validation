@@ -1,8 +1,6 @@
 const validator = {
   // ...  
   isValid: (creditCardNumber) => { //en isValid (parámetro) se guarda el valor de la función anónima
-
-    console.log("isValid creditCardNumber " + creditCardNumber);
    
     //algoritmo de Luhn
     creditCardNumber = creditCardNumber.toString(); //para asegurar de que el parámetro sea string//
@@ -38,8 +36,8 @@ const validator = {
         }
       }
       sumaFinal = sumaFinal + parseInt(numeroEnLectura);
-
     }
+
     if (sumaFinal %10 === 0){ //verifica si es múltiplo de 10
       return true;
     } else { 
@@ -56,15 +54,10 @@ const validator = {
 
       if (i < creditCardNumber.length - 4) {
         numeroOculto = numeroOculto + "#";
-
       } else {
         numeroOculto = numeroOculto + creditCardNumber[i];
-
       }
     }
-
-    console.log(creditCardNumber);
-    console.log(numeroOculto);
 
     return numeroOculto;
   },

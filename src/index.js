@@ -14,7 +14,6 @@ function largoTarjetaCredito(evento) {
   const creditCardNumber = document.querySelector("#inputNumero").value;
   const largoString = creditCardNumber.length;
   if (largoString > 16) {
-    console.log("El largo de la tarjeta no corresponde");
     evento.preventDefault(); //previene que se escriban mas de 16 caracteres
   }
 }
@@ -106,15 +105,15 @@ inputCvv.addEventListener('blur', () => {
 });
 
 
-//selección del mes de expiración
+//Creación de opciones de MES
 for (let i = 1; i <= 12; i++) {
-  const opcion = document.createElement('option');
+  const opcion = document.createElement('option'); //createElement crea objeto html
   opcion.value = i;
   opcion.innerHTML = i;
   formulario.seleccionarMes.appendChild(opcion); //agrega hijos (opciones) al elemento padre (opcion)
 }
 
-//selección del año de expiración
+//Creación de opciones AÑO
 const anioActual = new Date().getFullYear();
 for (let i = anioActual; i <= anioActual + 10; i++) {
   const opcion = document.createElement('option'); //me crea mas elementos de tag html, en este caso de <option>
@@ -122,7 +121,8 @@ for (let i = anioActual; i <= anioActual + 10; i++) {
   opcion.innerHTML = i;
   formulario.seleccionarAnio.appendChild(opcion);
 }
-// Selecionar Mes
+
+// Dibujar en tarjeta la selección de Mes
 formulario.seleccionarMes.addEventListener('change', () => {
   const valorSeleccionMes = document.querySelector("#seleccionarMes").value;
   if (valorSeleccionMes === "") {
@@ -132,7 +132,7 @@ formulario.seleccionarMes.addEventListener('change', () => {
   }
 });
 
-// Seleccionar Año
+// Dibujar en tarjeta la seleccion de Año
 formulario.seleccionarAnio.addEventListener('change', () => {
   const valorSeleccionAnio = document.querySelector("#seleccionarAnio").value;
   if (valorSeleccionAnio === "") {
